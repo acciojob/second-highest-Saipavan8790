@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -10,15 +11,21 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			function secondHighest(arr) {
-			if (arr.length <= 1 || new Set(arr).size === 1) {
-				return -Infinity;
-			}
+			let max = Number.NEGATIVE_INFINITY;
+    let secondMax = Number.NEGATIVE_INFINITY;
 
-			arr.sort((a, b) => a - b);
-			return arr[arr.length - 2];
-		}
+    // 1 2 3 4 5 6
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] > max) {
+            secondMax = max;
+            max = arr[i];
+        } else if(arr[i] > secondMax && arr[i] != max) {
+            secondMax = arr[i];
+        }
+    }
 
+    return secondMax; 
+			
 		}
 
 		function Main() {
@@ -37,4 +44,3 @@
 
 </body>
 
-</html>
